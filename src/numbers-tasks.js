@@ -158,8 +158,10 @@ function parseNumberFromString(value) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  const res = Math.sqrt(a ** 2 + b ** 2 + c ** 2);
+
+  return res;
 }
 
 /**
@@ -201,9 +203,7 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
-}
+function isPrime(/* n */) {}
 
 /**
  * Tries to convert value to number and returns it if conversion was successful;
@@ -374,8 +374,9 @@ function toExponential(/* number, fractionDigits */) {
  * 12345, 2    => '12345.00'
  * 12.345, 1   => '12.3'
  */
-function toFixed(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toFixed(number, fractionDigits) {
+  const res = number.toFixed(fractionDigits);
+  return res;
 }
 
 /**
@@ -390,9 +391,7 @@ function toFixed(/* number, fractionDigits */) {
  * 12345, 7    => '12345.00'
  * 12.345, 4   => '12.35'
  */
-function toPrecision(/* number, precision */) {
-  throw new Error('Not implemented');
-}
+function toPrecision(/* number, precision */) {}
 
 /**
  * Returns the primitive value of a Number object.
@@ -491,8 +490,9 @@ function getIntegerOnString(/* str, base */) {
  * 3.5      => false
  * 2 ** 53  => false
  */
-function isSafeInteger(/* number */) {
-  throw new Error('Not implemented');
+function isSafeInteger(number) {
+  const res = Number.isSafeInteger(number);
+  return res;
 }
 
 /**
@@ -505,8 +505,9 @@ function isSafeInteger(/* number */) {
  * 5.9  => 5
  * -5.1 => -6
  */
-function roundToSmallestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToSmallestInteger(number) {
+  const res = Math.floor(number);
+  return res;
 }
 
 /**
