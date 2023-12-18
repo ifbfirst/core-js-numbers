@@ -330,9 +330,7 @@ function isPowerOfTwo(/* num */) {}
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
-}
+function getSine(/* num */) {}
 
 /**
  * Returns a string representation of a number in a specified base (radix).
@@ -457,8 +455,9 @@ function isInteger(number) {
  * '4.567abcdefgh' => 4.567
  * 'abcdefgh'      => NaN
  */
-function getFloatOnString(/* str */) {
-  throw new Error('Not implemented');
+function getFloatOnString(str) {
+  const res = parseFloat(str, 10);
+  return res;
 }
 
 /**
@@ -475,8 +474,9 @@ function getFloatOnString(/* str */) {
  * '1.234', 2           => 1
  * '10', 8              => 8
  */
-function getIntegerOnString(/* str, base */) {
-  throw new Error('Not implemented');
+function getIntegerOnString(str, base) {
+  const res = parseInt(str, base);
+  return res;
 }
 
 /**
@@ -602,8 +602,10 @@ function getMaxNumber(firstNumber, secondNumber) {
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
  */
-function getRandomInteger(/* min, max */) {}
-
+function getRandomInteger(min, max) {
+  const res = Math.floor(Math.random() * (max - min) + min);
+  return res;
+}
 /**
  * Returns the length of the hypotenuse of a right triangle.
  *
@@ -614,8 +616,9 @@ function getRandomInteger(/* min, max */) {}
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
+function getHypotenuse(a, b) {
+  const res = Math.sqrt(a ** 2 + b ** 2);
+  return res;
 }
 
 /**
@@ -631,8 +634,16 @@ function getHypotenuse(/* a, b */) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  let count = 0;
+  const num = Math.abs(number);
+  for (let i = 0; i <= num; i += 1) {
+    if (i % 2 !== 0) {
+      count += 1;
+    }
+  }
+
+  return count;
 }
 
 module.exports = {
