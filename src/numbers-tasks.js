@@ -343,8 +343,8 @@ function getSine(/* num */) {}
  * 255, 16 => 'ff'ф+
  * 2, 2    => '10'
  */
-function numberToStringInBase(/* number, base */) {
-  throw new Error('Not implemented');
+function numberToStringInBase(number, base) {
+  return number.toString(base);
 }
 
 /**
@@ -357,8 +357,8 @@ function numberToStringInBase(/* number, base */) {
  * @example:
  * 12345, 2    => '1.23e+4'
  */
-function toExponential(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toExponential(number, fractionDigits) {
+  return number.toExponential(fractionDigits);
 }
 
 /**
@@ -389,8 +389,9 @@ function toFixed(number, fractionDigits) {
  * 12345, 7    => '12345.00'
  * 12.345, 4   => '12.35'
  */
-function toPrecision(/* number, precision */) {}
-
+function toPrecision(number, precision) {
+  return number.toPrecision(precision);
+}
 /**
  * Returns the primitive value of a Number object.
  *
@@ -401,8 +402,8 @@ function toPrecision(/* number, precision */) {}
  * new Number(5) => 5
  * Number(-5)    => -5
  */
-function getNumberValue(/* number */) {
-  throw new Error('Not implemented');
+function getNumberValue(number) {
+  return number.valueOf();
 }
 
 /**
@@ -421,10 +422,7 @@ function getNumberValue(/* number */) {
  * '5'      => false
  */
 function isNumber(number) {
-  if (number.isNaN) {
-    return false;
-  }
-  return true;
+  return Number.isFinite(number);
 }
 
 /**
@@ -456,7 +454,7 @@ function isInteger(number) {
  * 'abcdefgh'      => NaN
  */
 function getFloatOnString(str) {
-  const res = parseFloat(str, 10);
+  const res = Number.parseFloat(str);
   return res;
 }
 
@@ -475,7 +473,7 @@ function getFloatOnString(str) {
  * '10', 8              => 8
  */
 function getIntegerOnString(str, base) {
-  const res = parseInt(str, base);
+  const res = Number.parseInt(str, base);
   return res;
 }
 
@@ -617,7 +615,10 @@ function getRandomInteger(min, max) {
  * 3, 4 => 5
  */
 function getHypotenuse(a, b) {
-  const res = Math.sqrt(a ** 2 + b ** 2);
+  const res = Number.parseFloat(Math.sqrt(a ** 2 + b ** 2));
+  if (res > Number.MAX_VALUE) {
+    return 1.7976931348623157e308;
+  }
   return res;
 }
 
