@@ -615,7 +615,7 @@ function getRandomInteger(min, max) {
  * 3, 4 => 5
  */
 function getHypotenuse(a, b) {
-  const res = Number.parseFloat(Math.sqrt(a ** 2 + b ** 2));
+  const res = Number.parseFloat(Math.hypot(a, b));
   if (res > Number.MAX_VALUE) {
     return 1.7976931348623157e308;
   }
