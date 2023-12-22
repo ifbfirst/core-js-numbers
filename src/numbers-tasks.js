@@ -109,8 +109,8 @@ function getLinearEquationRoot(a, b) {
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  return Math.abs(Math.atan2(y2, x2) - Math.atan2(y1, x1));
 }
 
 /**
@@ -182,8 +182,7 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  const res = num.toFixed(pow);
-  return res;
+  return Math.round(num / 10 ** pow) * 10 ** pow;
 }
 
 /**
@@ -203,7 +202,12 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {}
+function isPrime(n) {
+  for (let i = 2; i < n; i += 1) {
+    if (n % i === 0) return false;
+  }
+  return true;
+}
 
 /**
  * Tries to convert value to number and returns it if conversion was successful;
@@ -318,8 +322,9 @@ function getSumOfDigits(num) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {}
-
+function isPowerOfTwo(num) {
+  return Math.log2(num) % 1 === 0;
+}
 /**
  * Returns the sine of a number.
  *
@@ -330,8 +335,9 @@ function isPowerOfTwo(/* num */) {}
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {}
-
+function getSine(num) {
+  return Math.sin(num);
+}
 /**
  * Returns a string representation of a number in a specified base (radix).
  *
